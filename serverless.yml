@@ -1,0 +1,23 @@
+service: podlambda
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-west-1
+  environment:
+    NODE_ENV: dev
+
+functions:
+  main:
+    handler: handler.main
+    events:
+      - http:
+          path: /getsecret
+          method: get
+          cors: true
+      - http:
+          path: /getsecret
+          method: post
+          cors: true
