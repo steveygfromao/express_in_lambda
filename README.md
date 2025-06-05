@@ -1,6 +1,6 @@
 # Express in Lambda
 Running express server inside an AWS Lamba thus allowing multiple endpoints.
-Please make sure to have Node installed and your aws credentials are correctly setup.
+Please make sure to have Node and serverless installed and your aws credentials are correctly setup.
 
 # Usage
 ```npm install```
