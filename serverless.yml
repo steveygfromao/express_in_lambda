@@ -6,18 +6,17 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: eu-west-1
-  environment:
-    NODE_ENV: dev
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - secretsmanager:GetSecretValue
+      Resource: arn:aws:secretsmanager:eu-west-1:453369769439:secret:ao.lastmile.hhtdashboard.crewupdates_env-*
 
 functions:
   main:
     handler: handler.main
     events:
       - http:
-          path: /getsecret
+          path: /getconnectionstring
           method: get
-          cors: true
-      - http:
-          path: /getsecret
-          method: post
           cors: true
